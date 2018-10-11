@@ -13,6 +13,10 @@ export class GameEngine
 
     // items in the game
     public ball:Ball;
+    public ball2:Ball;
+    public ball3:Ball;
+    public ball4:Ball;
+
     public player1:Player;
  
     // canvas info
@@ -52,8 +56,14 @@ export class GameEngine
         this.player1 = new Player(new Vector(20,10), this);
         this.objects.push(this.player1);
 
-        this.ball = new Ball(new Vector(this.canvasWidth/2, this.canvasHeight/2), this);
+        this.ball = new Ball(new Vector(this.canvasWidth/2, this.canvasHeight/2), this, -1, -2);
         this.objects.push(this.ball);
+
+        this.ball2 = new Ball(new Vector(this.canvasWidth/3, this.canvasHeight/3), this, 1,1.2)
+        this.objects.push(this.ball2)
+
+        this.ball3 = new Ball(new Vector(this.canvasWidth/3, this.canvasHeight/2), this, 2.1,-1.2)
+        this.objects.push(this.ball3)
 
         this.gameLoop();
     }

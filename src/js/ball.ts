@@ -12,10 +12,10 @@ export class Ball implements GameObject
     private speed:number = 60;
     private size:number= 10;
 
-    constructor (position:Vector, gameEngine:GameEngine)
+    constructor (position:Vector, gameEngine:GameEngine, directionX: number, directionY: number )
     {
         this.position = position;
-        this.direction = new Vector(0.7, 1);
+        this.direction = new Vector(directionX,directionY);
         this.gameEngine = gameEngine;
         this.height = this.size;
         this.width = this.size;
@@ -39,7 +39,9 @@ export class Ball implements GameObject
     
     // draw ball on canvas
     draw(ctx: CanvasRenderingContext2D): void {
+        ctx.fillStyle = this.changeColor();
         ctx.fillRect(this.position.x, this.position.y, this.size, this.size);
+        
     }
     
     // in case of any collision this method is called
@@ -51,4 +53,8 @@ export class Ball implements GameObject
         }
     }
 
+
+    changeColor():string{
+        return "blue";
+    }
 }
